@@ -1,0 +1,45 @@
+.btn-blue {
+    background-color: turquoise;
+    /* Set the base color */
+    color: white;
+    /* Set the text color */
+    padding: 10px 20px;
+    /* Adjust padding as needed */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Optional: adds rounded corners */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition for hover */
+}
+
+/* Hover effect: swap background and text colors */
+.btn-blue:hover {
+    background-color: white;
+    /* Changes background to white */
+    color: turquoise;
+    /* Changes text to turquoise */
+}
+.ad-price-inner {
+    background-color: turquoise;
+    /* Set background color to turquoise */
+    color: white;
+    /* Text color for contrast */
+    padding: 10px 20px;
+    /* Adds padding for better spacing */
+    border-radius: 50%;
+    /* Makes it circular if desired */
+    text-align: center;
+    /* Centers the text horizontally */
+    display: flex;
+    /* Flexbox to center text */
+    align-items: center;
+    /* Vertical alignment */
+    justify-content: center;
+    /* Horizontal alignment */
+}
+.ad-price {
+    background-color: turquoise;
+    
+}

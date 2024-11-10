@@ -1,0 +1,24 @@
+.logo img {
+    width: 150px;
+    /* Set to your desired size */
+    height: auto;
+    /* Keeps the aspect ratio */
+}
+/* Base color for navbar links */
+.navbar-nav-wrapper .nav a {
+    color: orange;
+    text-decoration: none;
+    /* Optional: removes underline */
+    transition: color 0.3s ease;
+    /* Smooth transition on hover */
+}
+
+/* Color when hovering over a link */
+.navbar-nav-wrapper .nav a:hover {
+    color: turquoise;
+}
+
+/* Color for the active link */
+.navbar-nav-wrapper .nav .active a {
+    color: turquoise;
+}
