@@ -6,22 +6,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  login : Login;
-  constructor(private loginService : LoginService , private router:Router) { }
+  login: Login;
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
-    this.login= new Login();
+    this.login = new Login();
   }
 
-  save(){
-    this.loginService.addadmin(this.login).subscribe(res=>{
-      console.log('taaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
-      
+  save() {
+    this.loginService.addAdmin(this.login).subscribe((res) => {
+      console.log(
+        'taaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+      );
     });
-    
   }
-
 }

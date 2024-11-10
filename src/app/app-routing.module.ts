@@ -27,53 +27,97 @@ import { EditHotelComponent } from './back/Hotel/edit-hotel/edit-hotel.component
 import { HotelComponent } from './front/hotel/hotel/hotel.component';
 import { DetailHotelComponent } from './front/hotel/detail-hotel/detail-hotel.component';
 import { FormBookingComponent } from './front/form-booking/form-booking.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-   {path:'', redirectTo:'accueil', pathMatch:'full'},
-   {path:'home', component:HomeComponent},
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 
-   //maison hote
-   {path:'maisonhote', component: MaisonhoteComponent},
-   {path:'detailmaisonhote/:id', component: DetailmaisonhoteComponent},
-   {path:'listmaisonhhote', component: ListmaisonhoteComponent},
-   {path:'addmaisonhote', component: AddmaisonhoteComponent},
-   {path:'editmaisonhote/:id', component: EditmaisonhoteComponent},
+  //maison hote
+  { path: 'maisonhote', component: MaisonhoteComponent },
+  { path: 'detailmaisonhote/:id', component: DetailmaisonhoteComponent },
+  {
+    path: 'listmaisonhhote',
+    component: ListmaisonhoteComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'addmaisonhote',
+    component: AddmaisonhoteComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'editmaisonhote/:id',
+    component: EditmaisonhoteComponent,
+    canActivate: [AuthGuard],
+  },
 
   // transport
-  {path:'listtransport', component: ListtransportComponent},
-  {path:'addtransport', component: AddtransportComponent},
-  {path:'edittransport/:id', component: EdittransportComponent},
-  {path:'login', component: LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'accueil', component: AccueilComponent},
-  {path:'transport', component: TransportComponent},
-  {path:'detailtransport/:id', component: TransportdetailComponent},
-
+  {
+    path: 'listtransport',
+    component: ListtransportComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'addtransport',
+    component: AddtransportComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edittransport/:id',
+    component: EdittransportComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'transport', component: TransportComponent },
+  { path: 'detailtransport/:id', component: TransportdetailComponent },
 
   //booking
-  {path:'listbooking', component: ListBookingComponent},
-  {path:'editbooking/:id', component: EditBookingComponent},
-  {path:'booking', component: FormBookingComponent},
+  {
+    path: 'listbooking',
+    component: ListBookingComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'editbooking/:id',
+    component: EditBookingComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'booking', component: FormBookingComponent },
 
   //offre
-  {path:'alloffre', component: AlloffreComponent},
-  {path:'addoffre', component: AddoffreComponent},
-  {path:'editoffre/:idOffre', component: EditoffreComponent},
-  {path:'login', component: LoginComponent},
-  {path:'accueil', component: AccueilComponent},
-  {path:'detailoffre/:idOffre', component: DetailoffreComponent},
+  { path: 'alloffre', component: AlloffreComponent, canActivate: [AuthGuard] },
+  { path: 'addoffre', component: AddoffreComponent, canActivate: [AuthGuard] },
+  {
+    path: 'editoffre/:idOffre',
+    component: EditoffreComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'detailoffre/:idOffre', component: DetailoffreComponent },
   //hotel Back
-  {path:'addhotel', component: AddHotelComponent},
-  {path:'listhotel', component: ListHotelComponent},
-  {path:'edithotel/:id', component: EditHotelComponent},
+  { path: 'addhotel', component: AddHotelComponent, canActivate: [AuthGuard] },
+  {
+    path: 'listhotel',
+    component: ListHotelComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edithotel/:id',
+    component: EditHotelComponent,
+    canActivate: [AuthGuard],
+  },
 
   //hotel front
-  {path:'hotel', component: HotelComponent},
-  {path:'detailhotel/:id', component: DetailHotelComponent},
+  { path: 'hotel', component: HotelComponent },
+  { path: 'detailhotel/:id', component: DetailHotelComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
