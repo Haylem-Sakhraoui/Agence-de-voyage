@@ -1,0 +1,42 @@
+version: "2.7.4"
+services:
+
+  reservation:
+    container_name: reservation
+    build: C:\Users\Rahma\Desktop\microservices\AgenceVoyageMicro-reservation
+    ports:
+      - "8082:8082"
+    hostname: reservation
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka
+    image: "reservation"
+
+
+  apigateway:
+    container_name: apigateway
+    build: C:\Users\Rahma\Desktop\microservices\AgenceVoyageMicro-ApiGetWay
+    ports:
+      - "8089:8089"
+    hostname: apigateway
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka
+    image: "apigateway"
+    depends_on:
+      - discovery
+
+
+  discovery:
+    build: C:\Users\Rahma\Desktop\microservices\AgenceVoyageMicro-ServerEureka
+    ports:
+      - "8761:8761"
+    image: "discovery-service"
+
+  angular-service:
+    # The name of the service
+    container_name: angularcontainer # Container name
+    build: C:\Users\Rahma\Desktop\microservices\AgenceVoyageMicro-Client
+    volumes:
+      # Volume binding
+      - './angular:/usr/src/app'
+    ports:
+      - '4200:4200' # Port mapping
